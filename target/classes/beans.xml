@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+  <bean class="com.te.springcoredemo.MyOrders" id="myorders1" primary="true">
+   <property name="orderid" value="1010101"></property>
+   <property name="productname" value="fridge"></property>
+   </bean>    
+   
+    <bean class="com.te.springcoredemo.MyOrders" id="myorders3" primary="true">
+   <property name="orderid" value="2010101"></property>
+   <property name="productname" value="ac"></property>
+   </bean>
+	   
+    <bean class="com.te.springcoredemo.MyOrders" id="myorders2" >
+   <property name="orderid" value="1010102"></property>
+   <property name="productname" value="laptop"></property>
+   </bean>
+
+   <bean class="com.te.springcoredemo.Customer" id="customer1" scope="prototype"> 
+   <property name="customername" value="naresh"></property>
+   <property name="id" value="101"></property>
+   <property name="myorders"><ref bean="myorders1"/></property>
+   </bean>
+   
+   <bean class="com.te.springcoredemo.Customer" id="customer2" scope="prototype" > 
+   <property name="customername" value="naresh"></property>
+   <property name="id" value="102"></property> 
+   <property name="myorders"><ref bean="myorders3"/></property>
+   </bean>
+   
+</beans>
